@@ -71,13 +71,14 @@ function! codefmt#autopep8#GetFormatter() abort
     if s:autopep8_supports_range
       call codefmt#formatterhelpers#Format([
           \ l:executable,
+          \ '--aggressive',
           \ '--range', string(a:startline), string(a:endline),
           \ '-'])
     else
       call codefmt#formatterhelpers#AttemptFakeRangeFormatting(
           \ a:startline,
           \ a:endline,
-          \ [l:executable, '-'])
+          \ [l:executable, '--aggressive', '-'])
     endif
   endfunction
 
