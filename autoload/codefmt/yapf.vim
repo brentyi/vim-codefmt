@@ -45,7 +45,10 @@ function! codefmt#yapf#GetFormatter() abort
     call maktaba#ensure#IsNumber(a:endline)
     let l:lines = getline(1, line('$'))
 
-    let l:cmd = [l:executable, '--lines=' . a:startline . '-' . a:endline]
+    let l:cmd = [
+      \ l:executable,
+      \ "--style=facebook",
+      \ '--lines=' . a:startline . '-' . a:endline]
     let l:input = join(l:lines, "\n")
 
     let l:result = maktaba#syscall#Create(l:cmd).WithStdin(l:input).Call(0)
