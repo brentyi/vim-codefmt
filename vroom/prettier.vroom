@@ -117,7 +117,7 @@ It is also the default formatter for several file types.
   :silent file /foo/foo.markdown
   :set filetype=markdown
   :FormatCode
-  ! prettier .*--stdin-filepath /foo/foo.markdown.*2>.*
+  ! prettier .*--prose-wrap always --stdin-filepath /foo/foo.markdown.*2>.*
   $ f();
 
   :silent file /foo/foo.yaml
