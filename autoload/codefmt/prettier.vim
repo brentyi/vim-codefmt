@@ -75,6 +75,11 @@ function! codefmt#prettier#GetFormatter() abort
       call extend(l:cmd, ['--stdin-filepath', expand('%:p')])
     endif
 
+    " Clean up line wrapping for markdown files
+    if @%[-3:] == ".md"
+      call extend(l:cmd, ['--prose-wrap', 'always'])
+    endif
+
     call maktaba#ensure#IsNumber(a:startline)
     call maktaba#ensure#IsNumber(a:endline)
 
