@@ -44,7 +44,6 @@ function! codefmt#black#GetFormatter() abort
 
     call codefmt#formatterhelpers#Format([
         \ l:executable,
-        \ '--line-length=79',
         \ '-'])
   endfunction
 
